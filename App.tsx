@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import LoginScreen from './src/screen/auth/LoginScreen';
+import HomeScreen from './src/screen/home/HomeScreen';
 import SplashScreen from './src/screen/splash/SplashScreen';
 import COLORS from './src/theme/colors';
 
@@ -10,15 +10,15 @@ const SPLASH_DURATION_MS = 2200;
 function App(): React.JSX.Element {
   const [showSplash, setShowSplash] = useState(true);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowSplash(false);
-  //   }, SPLASH_DURATION_MS);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, SPLASH_DURATION_MS);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <SafeAreaProvider>
@@ -27,7 +27,7 @@ function App(): React.JSX.Element {
         backgroundColor={COLORS.background}
       />
       <View style={styles.container}>
-        {showSplash ? <SplashScreen /> : <LoginScreen />}
+        {showSplash ? <SplashScreen /> : <HomeScreen />}
       </View>
     </SafeAreaProvider>
   );
