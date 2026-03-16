@@ -15,6 +15,7 @@ const COLORS = {
   // Text
   textPrimary: "#F5F5F7",
   textSecondary: "#B8B5D6",
+  textDark: "#FF5FA2",
 
   // Borders
   border: "#3A3555",
@@ -30,7 +31,8 @@ const COLORS = {
   // Gradients
   gradients: {
     primary: ["#8A2BE2", "#FF5FA2"],        // Main Saiyaara gradient
-    sunset: ["#FF9A8B", "#FF5FA2"],         // Soft pink gradient
+    sunset: ["#FFE5E1", "#FFD6EC"],         // Soft pink gradient
+    // sunset: ["#FF9A8B", "#FF5FA2"],         // Soft pink gradient
     night: ["#1E1B2E", "#2A2640"],          // Dark UI gradient
     glow: ["#8A2BE2", "#FF9A8B"],           // Accent gradient
   }
