@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Dimensions, Image } from 'react-native';
+import { View, StyleSheet, FlatList, Dimensions, Image, StatusBar } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Header from '../../components/Header';
 import CategoryList from '../../components/CategoryList';
 import COLORS from '../../theme/colors';
@@ -37,29 +38,55 @@ const HomeScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <Header title="Saiyaara Gallery" />
-      <FlatList
-        data={images}
-        renderItem={renderImageItem}
-        keyExtractor={(item) => item.id}
-        numColumns={3}
-        ListHeaderComponent={
-          <CategoryList categories={categories} onCategoryPress={handleCategoryPress} />
-        }
-        contentContainerStyle={styles.flatListContent}
+    <>
+       <StatusBar
+        barStyle="light-content"
+        backgroundColor={"#FF9BB3"}
       />
-    </View>
+      <LinearGradient
+        colors={['#FF9BB3', '#FFF0F6']}
+        locations={[0, 1]}
+        style={styles.mainContainer}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <Header title="Saiyaara Gallery" transparent />
+        <LinearGradient
+          colors={['#4D2544', '#2B2331', '#4D2544']}
+          locations={[0, 0.45, 1]}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.6, y: 1 }}
+          style={styles.container}
+        >
+          <FlatList
+            data={images}
+            renderItem={renderImageItem}
+            keyExtractor={(item) => item.id}
+            numColumns={3}
+            ListHeaderComponent={<CategoryList categories={categories} onCategoryPress={handleCategoryPress} />}
+            contentContainerStyle={styles.flatListContent}
+          />
+        </LinearGradient>
+      </LinearGradient>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    overflow: 'hidden',
+  },
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    borderTopRightRadius: 35,
+    borderTopLeftRadius: 35,
+    overflow: 'hidden',
   },
   flatListContent: {
     padding: 16,
+    paddingTop: 8,
+    paddingBottom: 24,
   },
   imageContainer: {
     flex: 1,
@@ -72,6 +99,42 @@ const styles = StyleSheet.create({
     width: imageSize,
     height: imageSize,
     borderRadius: 8,
+  },
+  glowTopLeft: {
+    position: 'absolute',
+    top: -120,
+    left: -110,
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    backgroundColor: 'rgba(206, 160, 231, 0.28)',
+  },
+  glowTopRight: {
+    position: 'absolute',
+    top: -110,
+    right: -90,
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    backgroundColor: 'rgba(253, 195, 218, 0.24)',
+  },
+  glowBottomLeft: {
+    position: 'absolute',
+    bottom: 160,
+    left: -120,
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    backgroundColor: 'rgba(182, 103, 221, 0.22)',
+  },
+  glowBottomRight: {
+    position: 'absolute',
+    bottom: -70,
+    right: -80,
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    backgroundColor: 'rgba(223, 128, 217, 0.2)',
   },
 });
 

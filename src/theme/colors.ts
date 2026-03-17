@@ -32,7 +32,7 @@ const COLORS = {
   gradients: {
     primary: ["#8A2BE2", "#FF5FA2"],        // Main Saiyaara gradient
     sunset: ["#FFE5E1", "#FFD6EC"],         // Soft pink gradient
-    // sunset: ["#FF9A8B", "#FF5FA2"],         // Soft pink gradient
+    main: ["#FF9A8B", "#FF5FA2"],         // Soft pink gradient
     night: ["#1E1B2E", "#2A2640"],          // Dark UI gradient
     glow: ["#8A2BE2", "#FF9A8B"],           // Accent gradient
   }

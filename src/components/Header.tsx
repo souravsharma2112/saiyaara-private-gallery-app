@@ -1,30 +1,43 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import COLORS from '../theme/colors';
+import { View, StyleSheet, Image } from 'react-native';
 
 interface HeaderProps {
   title: string;
+  transparent?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const homeLogo = require('../assets/images/homet.png');
+
+const Header: React.FC<HeaderProps> = ({ title, transparent = false }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+   
+    <View style={[styles.container, transparent && styles.transparentContainer]}>
+        <View style={styles.logoShell}>
+          <Image source={homeLogo} style={styles.logo} resizeMode="contain" />
+        </View>
     </View>
+
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    backgroundColor: COLORS.surface,
+    padding: 8,
+    // backgroundColor: COLORS.surface,
     borderBottomWidth: 1,
-    borderBottomColor: COLORS.border,
+    // borderBottomColor: COLORS.border,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: COLORS.textPrimary,
+  transparentContainer: {
+    backgroundColor: 'transparent',
+    borderBottomWidth: 0,
+  },
+  logoShell:{
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  logo:{
+    width:300,
+    height:150,
   },
 });
 

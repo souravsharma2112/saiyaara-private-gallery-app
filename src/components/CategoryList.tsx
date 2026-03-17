@@ -16,35 +16,29 @@ interface CategoryListProps {
 }
 
 const CategoryList: React.FC<CategoryListProps> = ({ categories, onCategoryPress }) => {
-  const renderItem = ({ item }: { item: Category }) => (
-    <TouchableOpacity
-      style={styles.categoryItem}
-      onPress={() => onCategoryPress(item)}
-    >
-      <FolderIcon variant={item.variant} width={48} height={48} />
-      <Text style={styles.categoryName}>{item.name}</Text>
-      <Text style={styles.categoryCount}>{item.count} items</Text>
-    </TouchableOpacity>
-  );
-
   return (
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Categories</Text>
-      <FlatList
-        data={categories}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.list}
-      />
+      <View style={styles.list}>
+        {categories?.map((item, index) => (<>
+          <TouchableOpacity
+            key={`category${index}`}
+            style={styles.categoryItem}
+            onPress={() => onCategoryPress(item)}
+          >
+            <FolderIcon variant={item.variant} width={72} height={72} />
+            <Text style={styles.categoryName}>{item.name}</Text>
+            <Text style={styles.categoryCount}>{item.count} items</Text>
+          </TouchableOpacity>
+        </>))}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingVertical: 16,
   },
   sectionTitle: {
     fontSize: 18,
@@ -54,14 +48,11 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingRight: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   categoryItem: {
     alignItems: 'center',
-    marginRight: 16,
-    padding: 12,
-    backgroundColor: COLORS.surface,
-    borderRadius: 12,
-    minWidth: 80,
   },
   categoryName: {
     fontSize: 14,
