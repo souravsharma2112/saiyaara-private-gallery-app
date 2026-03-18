@@ -22,6 +22,7 @@ type GalleryImage = {
   thumbSource: number;
   viewerSource: number;
 };
+// https://www.figma.com/design/d9pd5u57St2IPzGBCItQWB/Coffee-Shop-Mobile-App-Design--Community-?node-id=0-1&p=f&t=8t0N12fOK7FeEM8M-0
 
 const HomeScreen = () => {
   const [viewerVisible, setViewerVisible] = useState(false);
