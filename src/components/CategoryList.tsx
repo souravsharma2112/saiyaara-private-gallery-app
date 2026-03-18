@@ -20,7 +20,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, onCategoryPress
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Categories</Text>
       <View style={styles.list}>
-        {categories?.map((item, index) => (<>
+        {categories?.map((item, index) => (
           <TouchableOpacity
             key={`category${index}`}
             style={styles.categoryItem}
@@ -30,7 +30,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, onCategoryPress
             <Text style={styles.categoryName}>{item.name}</Text>
             <Text style={styles.categoryCount}>{item.count} items</Text>
           </TouchableOpacity>
-        </>))}
+        ))}
       </View>
     </View>
   );
