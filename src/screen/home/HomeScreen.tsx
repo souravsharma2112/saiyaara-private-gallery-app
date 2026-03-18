@@ -24,6 +24,8 @@ type GalleryImage = {
 };
 // https://www.figma.com/design/d9pd5u57St2IPzGBCItQWB/Coffee-Shop-Mobile-App-Design--Community-?node-id=0-1&p=f&t=8t0N12fOK7FeEM8M-0
 
+// https://www.figma.com/design/AGblAlI0aR6Ittp4rl1XNE/Medical-Health-Mobile-App-Dermatology-App-Ui-Kit-Doctor-Mobile-App--Community-?node-id=0-1&p=f&t=sxTRwDBZ4CPFmtVF-0
+
 const HomeScreen = () => {
   const [viewerVisible, setViewerVisible] = useState(false);
   const [selectedImage, setSelectedImage] =
