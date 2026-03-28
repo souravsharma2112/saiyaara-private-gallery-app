@@ -5,6 +5,7 @@ import HomeScreen from './src/screen/home/HomeScreen';
 import SplashScreen from './src/screen/splash/SplashScreen';
 import COLORS from './src/theme/colors';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import LoginScreen from './src/screen/auth/LoginScreen';
 
 const SPLASH_DURATION_MS = 2200;
 
@@ -29,7 +30,7 @@ function App(): React.JSX.Element {
           backgroundColor={COLORS.background}
         />
         <View style={styles.container}>
-          {showSplash ? <SplashScreen /> : <HomeScreen />}
+          {showSplash ? <SplashScreen /> : <LoginScreen />}
         </View>
       </GestureHandlerRootView>
     </SafeAreaProvider>
